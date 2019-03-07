@@ -1,0 +1,15 @@
+<launch>
+  
+  <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+    <arg name="camera" value="/spencer/sensors/rgbd_front_top"/>
+    <arg name="tf_prefix" value="rgbd_front_top"/>
+  </include>
+  
+  <node pkg="realsense_spencer_adaptor" type="realsense_spencer_adaptor.py" name="realsense_spencer_adaptor" ns="/spencer/sensors/rgbd_front_top"/>
+  
+  <include file="$(find spencer_people_tracking_launch)/launch/tracking_single_rgbd_sensor.launch">
+    <arg name="load_driver" value="false"/>
+    <arg name="height_above_ground" value="0.6"/>
+  </include>
+  
+</launch>
