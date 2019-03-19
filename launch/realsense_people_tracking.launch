@@ -1,5 +1,7 @@
+<?xml version="1.0"?>
 <launch>
-  <arg name="visualization" default="true" doc="start Rviz with predefined configuration?"/>  
+  <arg name="visualization" default="true" doc="start Rviz with predefined configuration?"/>
+  <arg name="dummy_transforms" default="true" doc="publish TF transform for sensor to groundplane"/>
 
   <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
     <arg name="camera" value="/spencer/sensors/rgbd_front_top"/>
@@ -12,6 +14,7 @@
     <arg name="load_driver" value="false"/>
     <arg name="height_above_ground" value="0.6"/>
     <arg name="visualization" value="$(arg visualization)"/>
+    <arg name="dummy_transforms" value="$(arg dummy_transforms)"/>
   </include>
   
 </launch>
